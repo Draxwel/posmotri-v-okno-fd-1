@@ -56,6 +56,7 @@ ol {
   justify-content: center;
   align-items: center;
 }
+
 .content {
   display: flex;
   flex-direction: row;
@@ -63,6 +64,7 @@ ol {
   width: 1140px;
   gap: 30px;
 }
+
 .search-form {
   display: flex;
   flex-direction: row;
@@ -74,43 +76,54 @@ ol {
   overflow-y: auto;
   gap: 30px;  
   flex-direction: column;
+  position: relative;
 }
+
 .content__details {
   width: 399px;
   height: 534px;
   display: flex;
   flex-direction: column;
+  gap: 26px;
 }
+
 .title {
-font-family: Owald;
+font-family: 'Owald', sans-serif;
 font-weight: 700;
 font-size: 75px;
 line-height: 0.94;
 text-transform: uppercase;
 margin-bottom: 26px;
 }
+
 .result__video-container {
   width: 711px;
   height: 386px;
   margin-bottom: 16px;
+  position: relative;
 }
+
 .result__video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
+
+/* Шаг 2. Уточнение размеров */
 .content__list {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
+
 .content__video-card {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
 }
+
 .content__video-card-thumbnail {
   min-width: 194px;
   min-height: 103px;
@@ -120,16 +133,20 @@ margin-bottom: 26px;
 .content__video-card-description-container {
   flex-grow: 1;
 }
+
+/* Шаг 3. Стили текстов */
 .search-form__fieldset-title {
-  font-family: Fira Sans Condensed;
+  font-family: 'Fira Sans Condensed', sans-serif; 
   font-weight: 400;
   font-size: 18px;
   margin-bottom: 5px;
 }
+
 .content__accent {
-  font-family: Oswald;
-  color: #545050;
+  font-family: 'Oswald', sans-serif;
+  color: #545050; 
 }
+
 .content__card-link {
   color: #fff;
   text-decoration: none;
@@ -137,23 +154,28 @@ margin-bottom: 26px;
 .content__video-card-title {
   font-weight: 700;
   font-size: 30px;
-  /*margin-bottom: 6px;*/
-  white-space: nowrap;
+  margin-bottom: 6px;
+  /*white-space: nowrap;*/
   overflow: hidden;
   text-overflow: ellipsis;
   text-transform: uppercase;
-  font-family: Oswald;
+  font-family: 'Oswald', sans-serif;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
+
 .content__video-card-description {
   font-weight: 400;
   font-size: 18px;
-  line-height: 16.2px;
+  line-height: 16.2px; /* или 1.4*/
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
+/* Шаг 4. Стилизуем формы */
 .visually-hidden {
   position: absolute;
   inline-size: 1px;
@@ -163,48 +185,60 @@ margin-bottom: 26px;
   clip-path: inset(50%);
   white-space: nowrap;
 }
+
 .search-form__checkbox-list{
   display: flex;
   gap: 15px;
 }
+
 .search-form__fieldset {
   border: none;
   padding: 0;
   margin: 0;
 }
+
 .search-form__label {
-  display: none;
+  display: none; /* или flex*/
   align-items: center;
   gap: 5px;
   width: fit-content;
   cursor: pointer;
 }
+
 .search-form__textfield {
-  font-family: Fira Sans Condensed;
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
-  color: #FFFFFFB2;
-  background-color: transparent;  
-  border: none;
+  color: #FFFFFFB2; /*#fff*/
+  background-color: transparent;
+  border-top: 1px solid #fff;  
   border-bottom: 1px solid #fff;
+  border-left: none;
+  border-right: none;
   padding: 0;
+  -webkit-appearance: none;
   appearance: none;
   outline: none;
 }
+
 .search-form__textfield::placeholder {
   color: rgba (255, 255, 255, 0.7);
 }
+
 .search-form__label:has(:focus-visible) {
   outline: 1px solid #fff;
   outline-offset: 2px;
 }
+
 .search-form__pseudo-checkbox {
   height: 19px;
   width: 19px;
   padding: 19px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; /*inline-block*/
+  align-items: center; /*его в конце нет*/
+  justify-content: center; /*его нет но добавлен*/
+  position: relative;
 }
+
 .search-form__pseudo-checkbox::after {
   content: "";
   display: block;
@@ -213,9 +247,111 @@ margin-bottom: 26px;
   background-color: #fff;
   opacity: 0;
 }
+
 .search-form__checkbox:checked+ .search-form__pseudo-checkbox::after {
   opacity: 1;
 }
-.search-form__label:hover .search-form__label-text {
+
+.search-form__label:hover .search-form__label-text { /*тут убран лишний тэг по форе*/
   text-decoration: underline;
+}
+
+/* Шаг 5. Стилизуем кнопки */
+.button {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #fff;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:active {
+  color: #545050;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
+.search-form__submit-button {
+  width: 103px;
+  height: 28px;
+  align-self: flex-end;
+}
+
+.more-button {
+  width: 100%;
+  height: 28px;
+  margin-top: 30px;
+}
+
+/* Шаг 6. Состояния карточек */
+.content__card-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #fff;
+}
+
+.content__card-link_current {
+  background-color: #D9D9D9;
+}
+
+.content__card-link:active {
+  background-color: #545050;
+}
+
+.content__video-card:hover .content__video-card-title {
+  text-decoration: underline;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
+.content__list-item {
+  padding: 0 3px;
+}
+
+/* Шаг 7. Работаем с кликабельностью */
+.button,
+.content__card-link,
+.search-form__label,
+.search-form__checkbox,
+.search-form__pseudo-checkbox {
+  cursor: pointer;
+}
+
+/* Шаг 8. Позиционирование прелоадеров */
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
 }
