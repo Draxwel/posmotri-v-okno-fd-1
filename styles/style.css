@@ -70,7 +70,9 @@ ol {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
+  width: 100%;
 }
+
 .content__list-container {
   height: 298px;
   overflow-y: auto;
@@ -81,7 +83,7 @@ ol {
 
 .content__details {
   width: 399px;
-  height: 534px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 26px;
@@ -132,6 +134,10 @@ margin-bottom: 26px;
 }
 .content__video-card-description-container {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px; 
+  margin-left: 16px;
 }
 
 /* Шаг 3. Стили текстов */
@@ -152,6 +158,7 @@ margin-bottom: 26px;
   text-decoration: none;
 }
 .content__video-card-title {
+  font-family: 'Oswald', sans-serif;
   font-weight: 700;
   font-size: 30px;
   margin-bottom: 6px;
@@ -159,16 +166,16 @@ margin-bottom: 26px;
   overflow: hidden;
   text-overflow: ellipsis;
   text-transform: uppercase;
-  font-family: 'Oswald', sans-serif;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
 
 .content__video-card-description {
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: 400;
   font-size: 18px;
-  line-height: 16.2px;
+  line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -209,7 +216,7 @@ margin-bottom: 26px;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   color: #fff; /*  Чистый белый для текста при вводе */
-  background-color: #1b1919; /*  Цвет фона страницы */
+  background-color: transparent; 
   border-top: 1px solid #fff;  
   border-bottom: 1px solid #fff;
   border-left: none;
@@ -234,7 +241,7 @@ margin-bottom: 26px;
   height: 19px;
   width: 19px;
   padding: 19px;
-  display: flex; /*inline-block*/
+  display: inline-block; 
   align-items: center; /*его в конце нет*/
   justify-content: center; /*его нет но добавлен*/
   position: relative;
@@ -264,8 +271,9 @@ margin-bottom: 26px;
   color: #fff;
   background-color: transparent;
   border: 1px solid #fff;
-  cursor: pointer;
-  padding: 0;
+  cursor: #fff;
+  background-color: transparent;
+  padding: 10px 20px;
   text-decoration: none;
   display: inline-block;
   text-align: center;
