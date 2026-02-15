@@ -90,12 +90,12 @@ ol {
 }
 
 .title {
-font-family: 'Owald', sans-serif;
-font-weight: 700;
-font-size: 75px;
-line-height: 0.94;
-text-transform: uppercase;
-margin-bottom: 26px;
+  font-family: 'Owald', sans-serif;
+  font-weight: 700;
+  font-size: 75px;
+  line-height: 0.94;
+  text-transform: uppercase;
+  margin-bottom: 26px;
 }
 
 .result__video-container {
@@ -175,7 +175,7 @@ margin-bottom: 26px;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: 400;
   font-size: 18px;
-  line-height: 1.4;
+  line-height: 16.2px; /*или 1.4*/
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -193,7 +193,7 @@ margin-bottom: 26px;
   white-space: nowrap;
 }
 
-.search-form__checkbox-list{
+.search-form__checkbox-list {
   display: flex;
   gap: 15px;
 }
@@ -215,7 +215,7 @@ margin-bottom: 26px;
 .search-form__textfield {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
-  color: #fff; /*  Чистый белый для текста при вводе */
+  color: #FFFFFFB2; /*  Чистый белый для текста при вводе */
   background-color: transparent; 
   border-top: 1px solid #fff;  
   border-bottom: 1px solid #fff;
@@ -241,14 +241,15 @@ margin-bottom: 26px;
   height: 19px;
   width: 19px;
   padding: 19px;
-  display: inline-block; 
+  display: inline-block; /*flex*/
   align-items: center; /*его в конце нет*/
   justify-content: center; /*его нет но добавлен*/
   position: relative;
+  /*Установите высоту и ширину и стилизуйте границу border. Назначьте внутренний отступ в 1px  */
 }
 
 .search-form__pseudo-checkbox::after {
-  content: "";
+  content: "#";
   display: block;
   width: 100%;
   height: 100%;
@@ -272,8 +273,7 @@ margin-bottom: 26px;
   background-color: transparent;
   border: 1px solid #fff;
   cursor: #fff;
-  background-color: transparent;
-  padding: 10px 20px;
+  padding: 6px 70.5px;
   text-decoration: none;
   display: inline-block;
   text-align: center;
@@ -293,7 +293,6 @@ margin-bottom: 26px;
 
 .button:focus-visible {
   outline: 1px solid #FFFFFF;
-;
   outline-offset: 2px;
 }
 
