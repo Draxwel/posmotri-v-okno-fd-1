@@ -48,9 +48,10 @@ ol {
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background-color: #D9D9D9;
+  border-radius: 2px;
 }
 
-/*Нaчало*/
+/* ===== ШАГ 1: ЛЕЙАУТ ===== */
 .page {
   display: flex;
   justify-content: center;
@@ -61,24 +62,32 @@ ol {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  width: 1140px;
-  gap: 30px;
+  width: 1140px; 
+  gap: 24px; /* Точное соответствие макету */
+  padding-top: 24px;
+}
+
+/* КРИТИЧЕСКОЕ ИСПРАВЛЕНИЕ: Фиксированная ширина под видео и форму */
+.result {
+  width: 711px; /* Точно как в Figma */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .search-form {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
   width: 100%;
+  gap: 16px;
 }
 
 .content__list-container {
   height: 298px;
   overflow-y: auto;
-  gap: 30px;  
+  display: flex;
   flex-direction: column;
-  position: relative;
+  gap: 20px;
 }
 
 .content__details {
@@ -89,11 +98,12 @@ ol {
   gap: 26px;
 }
 
+/* ===== ШАГ 2: РАЗМЕРЫ ЭЛЕМЕНТОВ ===== */
 .title {
-  font-family: 'Owald', sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-weight: 700;
   font-size: 75px;
-  line-height: 0.94;
+  line-height: 0.87;
   text-transform: uppercase;
   margin-bottom: 26px;
 }
@@ -102,7 +112,6 @@ ol {
   width: 711px;
   height: 386px;
   margin-bottom: 16px;
-  position: relative;
 }
 
 .result__video {
@@ -112,57 +121,57 @@ ol {
   object-position: center;
 }
 
-/* Шаг 2. Уточнение размеров */
 .content__list {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 
 .content__video-card {
   display: flex;
-  flex-direction: row;
   align-items: flex-start;
-  justify-content: space-between;
+  gap: 16px;
 }
 
 .content__video-card-thumbnail {
-  min-width: 194px;
-  min-height: 103px;
+  width: 194px;
+  height: 103px;
   object-fit: cover;
   object-position: center;
+  flex-shrink: 0;
 }
+
 .content__video-card-description-container {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  gap: 6px; 
-  margin-left: 16px;
+  gap: 6px;
 }
 
-/* Шаг 3. Стили текстов */
+/* ===== ШАГ 3: ТИПОГРАФИКА ===== */
 .search-form__fieldset-title {
-  font-family: 'Fira Sans Condensed', sans-serif; 
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: 400;
   font-size: 18px;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .content__accent {
   font-family: 'Oswald', sans-serif;
-  color: #545050; 
+  color: #D9D9D9;
 }
 
 .content__card-link {
   color: #fff;
   text-decoration: none;
 }
+
 .content__video-card-title {
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
   font-size: 30px;
   margin-bottom: 6px;
-  /*white-space: nowrap;*/
   overflow: hidden;
   text-overflow: ellipsis;
   text-transform: uppercase;
@@ -175,14 +184,15 @@ ol {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: 400;
   font-size: 18px;
-  line-height: 16.2px; /*или 1.4*/
+  line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  color: rgba(255, 255, 255, 0.85);
 }
 
-/* Шаг 4. Стилизуем формы */
+/* ===== ШАГ 4: ФОРМЫ ===== */
 .visually-hidden {
   position: absolute;
   inline-size: 1px;
@@ -195,88 +205,98 @@ ol {
 
 .search-form__checkbox-list {
   display: flex;
-  gap: 15px;
+  gap: 10px;
+  align-items: center;
 }
 
 .search-form__fieldset {
   border: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .search-form__label {
-  display: flex; 
+  display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
   width: fit-content;
   cursor: pointer;
+  padding: 2px;
 }
 
 .search-form__textfield {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
-  color: #FFFFFFB2; /*  Чистый белый для текста при вводе */
-  background-color: transparent; 
-  border-top: 1px solid #fff;  
+  color: #fff;
+  background-color: transparent;
+  border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
   border-left: none;
   border-right: none;
-  padding: 0;
+  padding: 4px 0;
+  width: 100%;
   -webkit-appearance: none;
   appearance: none;
   outline: none;
 }
 
-/* Стиль для плейсхолдера (подсказки) */
 .search-form__textfield::placeholder {
-  color: rgba(255, 255, 255, 0.7); /*  Полупрозрачный белый для подсказки */
+  color: rgba(255, 255, 255, 0.5);
 }
 
-.search-form__label:has(:focus-visible) {
-  outline: 1px solid #fff;
-  outline-offset: 2px;
+.search-form__label:has(.search-form__textfield:focus-visible) {
+  border: 1px solid #fff;
+  border-radius: 2px;
 }
 
 .search-form__pseudo-checkbox {
-  height: 19px;
   width: 19px;
-  padding: 19px;
-  display: inline-block; /*flex*/
-  align-items: center; /*его в конце нет*/
-  justify-content: center; /*его нет но добавлен*/
+  height: 19px;
+  padding: 1px;
+  border: 1px solid #fff;
+  display: inline-block;
   position: relative;
-  /*Установите высоту и ширину и стилизуйте границу border. Назначьте внутренний отступ в 1px  */
+  flex-shrink: 0;
 }
 
 .search-form__pseudo-checkbox::after {
-  content: "#";
+  content: "";
   display: block;
   width: 100%;
   height: 100%;
   background-color: #fff;
   opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.search-form__checkbox:checked+ .search-form__pseudo-checkbox::after {
+/* КРИТИЧЕСКОЕ ИСПРАВЛЕНИЕ: Корректный селектор для чекбокса */
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
   opacity: 1;
 }
 
-.search-form__label:hover .search-form__label-text { /*тут убран лишний тэг по форе*/
+.search-form__label:hover .search-form__label-text {
   text-decoration: underline;
 }
 
-/* Шаг 5. Стилизуем кнопки */
+/* ===== ШАГ 5: КНОПКИ ===== */
 .button {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   color: #fff;
   background-color: transparent;
   border: 1px solid #fff;
-  cursor: #fff;
-  padding: 6px 70.5px;
+  cursor: pointer;
+  padding: 6px 24px;
   text-decoration: none;
   display: inline-block;
   text-align: center;
+  border-radius: 2px;
+  transition: all 0.2s ease;
 }
 
 .button:hover {
@@ -285,6 +305,7 @@ ol {
 
 .button:active {
   color: #545050;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .button:focus {
@@ -292,33 +313,36 @@ ol {
 }
 
 .button:focus-visible {
-  outline: 1px solid #FFFFFF;
+  outline: 2px solid #fff;
   outline-offset: 2px;
 }
 
 .search-form__submit-button {
-  width: 103px;
-  height: 28px;
-  align-self: flex-end;
+  align-self: flex-start;
+  width: auto;
+  padding: 6px 24px;
 }
 
 .more-button {
   width: 100%;
   height: 28px;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
-/* Шаг 6. Состояния карточек */
+/* ===== ШАГ 6: СОСТОЯНИЯ КАРТОЧЕК ===== */
 .content__card-link {
   display: block;
   width: 100%;
   height: 100%;
   text-decoration: none;
   color: #fff;
+  border-radius: 2px;
+  padding: 4px;
 }
 
 .content__card-link_current {
   background-color: #D9D9D9;
+  color: #1b1919;
 }
 
 .content__card-link:active {
@@ -334,7 +358,7 @@ ol {
 }
 
 .content__card-link:focus-visible {
-  outline: 1px solid #fff;
+  outline: 2px solid #fff;
   outline-offset: 2px;
 }
 
@@ -342,7 +366,7 @@ ol {
   padding: 0 3px;
 }
 
-/* Шаг 7. Работаем с кликабельностью */
+/* ===== ШАГ 7-8: ПРОЧЕЕ ===== */
 .button,
 .content__card-link,
 .search-form__label,
@@ -351,7 +375,6 @@ ol {
   cursor: pointer;
 }
 
-/* Шаг 8. Позиционирование прелоадеров */
 .loader {
   position: absolute;
   top: 0;
