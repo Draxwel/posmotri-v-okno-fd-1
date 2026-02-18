@@ -69,9 +69,7 @@ ol {
 .search-form {
    display: flex;
    flex-direction: row;
-
    gap: 40px; 
-
    align-items: flex-start;
 }
 
@@ -97,7 +95,6 @@ ol {
    font-size: 75px;
    line-height: 0.94;
    text-transform: uppercase;
-
    margin-bottom: 26px;
 }
 
@@ -137,7 +134,6 @@ ol {
 
 .content__video-card-description-container {
    flex-grow: 1;
-
    overflow: hidden;
 }
 
