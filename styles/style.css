@@ -91,6 +91,10 @@ ol {
    text-transform: uppercase;
    margin-bottom: 26px;
 }
+.result {
+   margin-bottom: 3px;
+   margin-left: 1px;
+}
 
 .result__video-container {
    position: relative;
@@ -197,6 +201,7 @@ ol {
    display: flex;
    align-items: center;
    gap: 5px;
+   height: 27px;
    width: fit-content;
    cursor: pointer;
 }
@@ -296,6 +301,9 @@ ol {
 .more-button {
   width: 100%;
   height: 34px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 2px;
 }
 
 /* ===== ШАГ 6: СОСТОЯНИЯ КАРТОЧЕК ===== */
